@@ -1,0 +1,29 @@
+return {
+  "neovim/nvim-lspconfig",
+  opts = {
+    servers = {
+      gopls = {
+        mason = false,
+      },
+      html = {
+        mason = false,
+      },
+      jsonls = {
+        mason = false,
+      },
+      lua_ls = {
+        mason = false,
+      },
+      ruff_lsp = {
+        mason = false,
+      },
+      rust_analyzer = {
+        mason = false,
+        cmd = { "rustup", "run", "stable", "rust-analyzer" },
+      },
+      taplo = {
+        mason = false,
+      },
+    },
+  },
+}
