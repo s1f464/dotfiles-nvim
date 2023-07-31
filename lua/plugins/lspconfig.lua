@@ -14,6 +14,9 @@ return {
       lua_ls = {
         mason = false,
       },
+      pylsp = {
+        mason = false,
+      },
       ruff_lsp = {
         mason = false,
       },
