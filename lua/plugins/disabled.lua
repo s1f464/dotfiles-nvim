@@ -1,5 +1,10 @@
 return {
   {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    enabled = false,
+  },
+  {
     "folke/flash.nvim",
     enabled = false,
   },
@@ -8,20 +13,7 @@ return {
     enabled = false,
   },
   {
-    "rcarriga/nvim-notify",
-    enabled = false,
-  },
-  {
-    "folke/noice.nvim",
-    enabled = false,
-  },
-  {
     "folke/tokyonight.nvim",
-    enabled = false,
-  },
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
     enabled = false,
   },
 }
