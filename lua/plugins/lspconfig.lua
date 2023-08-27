@@ -5,6 +5,9 @@ return {
       bashls = {
         mason = false,
       },
+      cssls = {
+        mason = false,
+      },
       gopls = {
         mason = false,
       },
