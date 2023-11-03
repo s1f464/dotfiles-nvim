@@ -29,6 +29,13 @@ return {
       rust_analyzer = {
         mason = false,
         cmd = { "rustup", "run", "stable", "rust-analyzer" },
+        settings = {
+          ["rust-analyzer"] = {
+            cargo = {
+              features = "all",
+            },
+          },
+        },
       },
       taplo = {
         mason = false,
