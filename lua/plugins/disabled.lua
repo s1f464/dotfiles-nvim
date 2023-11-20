@@ -16,4 +16,8 @@ return {
     "folke/tokyonight.nvim",
     enabled = false,
   },
+  {
+    "nvimdev/dashboard-nvim",
+    enabled = false,
+  },
 }
