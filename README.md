@@ -1,4 +1,4 @@
-# $XDG\_CONFIG\_HOME/nvim
+# dotfiles-nvim
 
-My [Neovim](https://neovim.io/) config, based on
+My [neovim](https://neovim.io/) config, powered by
 [LazyVim](https://github.com/LazyVim/LazyVim).

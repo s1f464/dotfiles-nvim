@@ -10,10 +10,10 @@ return {
       palette.bg2 = "#131715"
       palette.bg3 = "#1d2120"
       palette.bg4 = "#252726"
-      palette.bg5 = "#2b3128"
-    end
+      --palette.bg5 = "#2b3128"
+    end,
   },
   config = function(_, opts)
     require("everforest").setup(opts)
-  end
+  end,
 }
