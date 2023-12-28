@@ -7,7 +7,7 @@ return {
     default_component_configs = {
       indent = {
         expander_collapsed = ">",
-        expander_expanded = "+",
+        expander_expanded = "v",
       },
       icon = {
         folder_closed = "f",
