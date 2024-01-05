@@ -1,6 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   opts = {
+    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     servers = {
       bashls = {
         mason = false,
@@ -38,6 +39,9 @@ return {
         },
       },
       taplo = {
+        mason = false,
+      },
+      yamlls = {
         mason = false,
       },
     },
