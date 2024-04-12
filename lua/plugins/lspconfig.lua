@@ -40,6 +40,9 @@ return {
       taplo = {
         mason = false,
       },
+      tsserver = {
+        mason = false,
+      },
       yamlls = {
         mason = false,
       },
