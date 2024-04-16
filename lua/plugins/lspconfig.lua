@@ -37,6 +37,9 @@ return {
           },
         },
       },
+      svelte = {
+        mason = false,
+      },
       taplo = {
         mason = false,
       },
