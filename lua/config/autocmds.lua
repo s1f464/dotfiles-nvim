@@ -12,8 +12,11 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "css",
     "html",
+    "javascript",
     "json",
+    "svelte",
     "toml",
+    "typescript",
     "lua",
   },
   callback = function()
