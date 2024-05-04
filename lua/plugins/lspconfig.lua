@@ -3,9 +3,11 @@ return {
   opts = {
     -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     servers = {
+      astro = {},
       bashls = {
         mason = false,
       },
+      biome = {},
       cssls = {
         mason = false,
       },
