@@ -1,7 +1,7 @@
 return {
   -- A snazzy bufferline for Neovim
   "akinsho/bufferline.nvim",
-  version = "*",
+  --version = "*",
   event = "VeryLazy",
   opts = {
     options = {
