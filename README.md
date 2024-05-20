@@ -1,6 +1,6 @@
 # dotfiles-nvim
 
-My [NVIM](https://neovim.io/) v0.9.5 config.
+My [Neovim](https://neovim.io/) 0.10.0 config.
 
 ## Plugins
 
