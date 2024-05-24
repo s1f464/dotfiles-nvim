@@ -11,6 +11,30 @@ local opts = {
   install = {
     missing = false,
   },
+  ui = {
+    icons = {
+      cmd = "",
+      config = "",
+      event = "",
+      ft = "",
+      init = "",
+      import = "",
+      keys = "",
+      lazy = "",
+      loaded = "",
+      not_loaded = "",
+      plugin = "",
+      runtime = "",
+      require = "",
+      source = "",
+      start = "",
+      task = "",
+      list = {
+        "-",
+        "*",
+      },
+    },
+  },
   checker = {
     enabled = false,
     concurrency = 2,
