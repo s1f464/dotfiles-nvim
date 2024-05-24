@@ -1,6 +1,16 @@
 # dotfiles-nvim
 
-My [Neovim](https://neovim.io/) 0.10.0 config.
+My [Neovim](https://neovim.io/) config.
+
+    NVIM v0.10.0
+    Build type: Release
+    LuaJIT 2.1.1713773202
+
+## Installation
+
+    git clone dotfiles-nvim.git
+    cd dotfiles-nvim
+    git worktree add -b deployment ~/.config/nvim
 
 ## Plugins
 
