@@ -50,42 +50,44 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function()
+  callback = function(args)
+    local bufnr = args.buf
+
     vim.keymap.set(
       "n",
       "gd",
       vim.lsp.buf.definition,
-      { desc = "Go to definition" }
+      { desc = "Go to definition", buffer = bufnr }
     )
     vim.keymap.set(
       "n",
       "gD",
       vim.lsp.buf.declaration,
-      { desc = "Go to declaration" }
+      { desc = "Go to declaration", buffer = bufnr }
     )
     vim.keymap.set(
       "n",
       "gy",
       vim.lsp.buf.type_definition,
-      { desc = "Go to type definition" }
+      { desc = "Go to type definition", buffer = bufnr }
     )
     vim.keymap.set(
       "n",
       "gi",
       vim.lsp.buf.implementation,
-      { desc = "Go to implementation" }
+      { desc = "Go to implementation", buffer = bufnr }
     )
     vim.keymap.set(
       { "n", "v" },
       "<leader>a",
       vim.lsp.buf.code_action,
-      { desc = "Perform code action" }
+      { desc = "Perform code action", buffer = bufnr }
     )
     vim.keymap.set(
       "n",
       "<leader>r",
       vim.lsp.buf.rename,
-      { desc = "Rename symbol" }
+      { desc = "Rename symbol", buffer = bufnr }
     )
   end,
 })
