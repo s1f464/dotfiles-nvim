@@ -25,6 +25,7 @@ vim.api.nvim_create_autocmd({ "VimLeave", "VimSuspend" }, {
   callback = function()
     vim.opt.guicursor = "a:hor10-blinkwait500-blinkon500-blinkoff500"
   end,
+  desc = "Restore cursor style",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -40,6 +41,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.shiftwidth = 2
     vim.opt_local.expandtab = true
   end,
+  desc = "Use 2 spaces for indentation",
 })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -90,6 +92,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       { desc = "Rename symbol", buffer = bufnr }
     )
   end,
+  desc = "Set key mappings for vim.lsp.buf",
 })
 
 if vim.env.LAZY_DISABLED ~= "1" then
