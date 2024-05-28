@@ -14,6 +14,13 @@ return {
       end,
       build = "make",
     },
+    -- Set vim.ui.select to telescope.
+    {
+      "nvim-telescope/telescope-ui-select.nvim",
+      config = function()
+        require("telescope").load_extension("ui-select")
+      end,
+    },
     -- A Lua library for neovim.
     "nvim-lua/plenary.nvim",
   },
