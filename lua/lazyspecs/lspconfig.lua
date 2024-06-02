@@ -4,9 +4,6 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    -- Neovim setup for init.lua and plugin development with full signature
-    -- help, docs and completion for the nvim Lua API.
-    { "folke/neodev.nvim", opts = {} },
     -- nvim-cmp source for neovim builtin LSP client
     "hrsh7th/cmp-nvim-lsp",
   },
