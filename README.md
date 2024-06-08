@@ -14,8 +14,11 @@ My [Neovim](https://neovim.io/) config.
 
 ## Plugins
 
-Clone [lazy](https://github.com/folke/lazy.nvim) plugin manager to load plugins.
+Install [lazy](https://github.com/folke/lazy.nvim) plugin manager to load
+plugins.
 
     git clone --filter=blob:none --branch=stable https://github.com/folke/lazy.nvim.git ~/.local/share/nvim/lazy/lazy.nvim
+
+Or `:LazyInstall`.
 
 Included plugins: [lazy-lock.json](lazy-lock.json).
