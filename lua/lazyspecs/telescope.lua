@@ -52,8 +52,14 @@ return {
 
     local builtin = require("telescope.builtin")
 
-    vim.api.nvim_create_user_command("ConfigFind", function()
-      builtin.find_files({ cwd = vim.fn.stdpath("config") })
-    end, { desc = "Find config files" })
+    vim.api.nvim_create_user_command("ConfigFind", function(opts)
+      builtin.find_files({
+        cwd = vim.fn.stdpath("config"),
+        search_file = opts.fargs[1],
+      })
+    end, {
+      desc = "Find config files",
+      nargs = "?",
+    })
   end,
 }
