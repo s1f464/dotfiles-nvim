@@ -33,6 +33,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "css",
     "html",
     "json",
+    "jsonc",
     "lua",
     "toml",
   },
