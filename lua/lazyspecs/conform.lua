@@ -6,6 +6,7 @@ return {
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
+      markdown = { "prettier" },
     },
     -- Toggle format-on-save
     format_on_save = function(bufnr)
