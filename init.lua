@@ -36,6 +36,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "jsonc",
     "lua",
     "toml",
+    "yaml",
   },
   callback = function()
     vim.opt_local.tabstop = 2
