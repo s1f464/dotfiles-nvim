@@ -4,7 +4,7 @@ My [Neovim](https://neovim.io/) config.
 
     NVIM v0.10.0
     Build type: Release
-    LuaJIT 2.1.1716656478
+    LuaJIT 2.1.1720049189
 
 ## Installation
 
