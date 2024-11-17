@@ -5,6 +5,8 @@ return {
   cmd = { "ConformInfo", "Format", "FormatDisable", "FormatEnable" },
   opts = {
     formatters_by_ft = {
+      css = { "prettier" },
+      html = { "prettier" },
       lua = { "stylua" },
       markdown = { "prettier" },
     },
