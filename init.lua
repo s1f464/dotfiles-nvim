@@ -46,6 +46,18 @@ vim.api.nvim_create_autocmd("FileType", {
   desc = "Use 2 spaces for indentation",
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "nginx",
+  },
+  callback = function()
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.expandtab = true
+  end,
+  desc = "Use 4 spaces for indentation",
+})
+
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank()
