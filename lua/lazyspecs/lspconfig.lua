@@ -4,8 +4,8 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    -- nvim-cmp source for neovim builtin LSP client
-    "hrsh7th/cmp-nvim-lsp",
+    -- Performant, batteries-included completion plugin for Neovim
+    "saghen/blink.cmp",
   },
   opts = {
     servers = {
@@ -51,12 +51,10 @@ return {
   },
   config = function(_, opts)
     local lspconfig = require("lspconfig")
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     for s, o in pairs(opts.servers) do
-      lspconfig[s].setup(
-        vim.tbl_deep_extend("force", o, { capabilities = capabilities })
-      )
+      o.capabilities = require("blink.cmp").get_lsp_capabilities(o.capabilities)
+      lspconfig[s].setup(o)
     end
   end,
 }
