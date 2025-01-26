@@ -6,22 +6,32 @@ return {
     {
       "<leader>f",
       "<cmd>FzfLua files<cr>",
-      desc = "Find files",
-    },
-    {
-      "<leader>e",
-      "<cmd>FzfLua live_grep<cr>",
-      desc = "Live grep",
+      desc = "Open file picker",
     },
     {
       "<leader>b",
       "<cmd>FzfLua buffers<cr>",
-      desc = "Buffers",
+      desc = "Open buffer picker",
+    },
+    {
+      "<leader>s",
+      "<cmd>FzfLua lsp_document_symbols<cr>",
+      desc = "Open symbol picker",
+    },
+    {
+      "<leader>S",
+      "<cmd>FzfLua lsp_workspace_symbols<cr>",
+      desc = "Open workspace symbol picker",
     },
     {
       "<leader>d",
+      "<cmd>FzfLua diagnostics_document<cr>",
+      desc = "Open diagnostic picker",
+    },
+    {
+      "<leader>D",
       "<cmd>FzfLua diagnostics_workspace<cr>",
-      desc = "Workspace diagnostics",
+      desc = "Open workspace diagnostic picker",
     },
   },
   opts = {},
