@@ -6,6 +6,9 @@ return {
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
+    cmdline = {
+      enabled = false,
+    },
     completion = {
       documentation = {
         auto_show = true,
@@ -22,7 +25,6 @@ return {
     },
     sources = {
       default = { "lazydev", "lsp", "path", "snippets", "buffer" },
-      cmdline = {},
       providers = {
         lazydev = {
           name = "LazyDev",
