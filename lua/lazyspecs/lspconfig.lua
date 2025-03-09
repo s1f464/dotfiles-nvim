@@ -10,6 +10,7 @@ return {
   opts = {
     servers = {
       astro = {},
+      basedpyright = {},
       bashls = {},
       biome = {},
       cssls = {},
@@ -26,7 +27,6 @@ return {
         },
       },
       prismals = {},
-      pylsp = {},
       ruff = {},
       rust_analyzer = {},
       svelte = {},
