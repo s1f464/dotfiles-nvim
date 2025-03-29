@@ -2,9 +2,9 @@
 
 My [Neovim](https://neovim.io/) config.
 
-    NVIM v0.10.4
+    NVIM v0.11.0
     Build type: RelWithDebInfo
-    LuaJIT 2.1.1736781742
+    LuaJIT 2.1.1741730670
 
 ## Installation
 
