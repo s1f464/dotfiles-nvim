@@ -5,10 +5,12 @@ return {
   cmd = { "ConformInfo", "Format", "FormatDisable", "FormatEnable" },
   opts = {
     formatters_by_ft = {
+      bash = { "shfmt" },
       css = { "prettier" },
       html = { "prettier" },
       lua = { "stylua" },
       markdown = { "prettier" },
+      sh = { "shfmt" },
     },
     -- Toggle format-on-save
     format_on_save = function(bufnr)
