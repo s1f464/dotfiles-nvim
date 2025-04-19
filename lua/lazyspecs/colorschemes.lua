@@ -5,6 +5,7 @@ return {
   priority = 1000,
   opts = {
     background = "hard",
+    disable_italic_comments = true,
     colours_override = function(palette)
       palette.bg_dim = "#000000"
       palette.bg0 = "#000000"
