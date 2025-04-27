@@ -34,9 +34,15 @@ return {
       desc = "Open workspace diagnostic picker",
     },
   },
-  opts = {},
-  config = function()
+  opts = {
+    "max-perf",
+    winopts = {
+      fullscreen = true
+    }
+  },
+  config = function(_, opts)
     local fzf = require("fzf-lua")
+    fzf.setup(opts)
 
     vim.api.nvim_create_user_command("ConfigFind", function()
       fzf.files({ cwd = vim.fn.stdpath("config") })
