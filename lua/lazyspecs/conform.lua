@@ -7,10 +7,12 @@ return {
     formatters_by_ft = {
       bash = { "shfmt" },
       css = { "prettier" },
+      go = { "goimports" },
       html = { "prettier" },
       lua = { "stylua" },
       markdown = { "prettier" },
       sh = { "shfmt" },
+      sql = { "sql_formatter" },
     },
     -- Toggle format-on-save
     format_on_save = function(bufnr)
