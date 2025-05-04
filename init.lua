@@ -125,6 +125,8 @@ vim.api.nvim_create_user_command("LazyInstall", function()
   end
 end, { desc = "Install lazy plugin manager" })
 
+vim.diagnostic.config({ virtual_text = true })
+
 if vim.env.LAZY_DISABLED ~= "1" then
   require("lazyinit")
 end
