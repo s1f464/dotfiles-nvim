@@ -2,6 +2,7 @@
 -- vim.g.mapleader must be set before loading lazy
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+vim.g.snacks_animate = false
 
 -- :help lua-guide-options
 vim.opt.ignorecase = true
