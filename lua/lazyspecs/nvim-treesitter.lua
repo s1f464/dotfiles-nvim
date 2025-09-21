@@ -1,68 +1,28 @@
 return {
   -- Nvim Treesitter configurations and abstraction layer
   "nvim-treesitter/nvim-treesitter",
-  dependencies = {
-    -- Syntax aware text-objects, select, move, swap, and peek support.
-    "nvim-treesitter/nvim-treesitter-textobjects",
-  },
+  branch = "main",
   event = "VeryLazy",
   lazy = vim.fn.argc(-1) == 0,
   build = ":TSUpdate",
-  cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-  opts = {
-    highlight = { enable = true },
-    indent = { enable = true },
-    textobjects = {
-      move = {
-        enable = true,
-        goto_next_start = {
-          ["]f"] = "@function.outer",
-          ["]c"] = "@class.outer",
-          ["]a"] = "@parameter.inner",
-        },
-        goto_next_end = {
-          ["]F"] = "@function.outer",
-          ["]C"] = "@class.outer",
-          ["]A"] = "@parameter.inner",
-        },
-        goto_previous_start = {
-          ["[f"] = "@function.outer",
-          ["[c"] = "@class.outer",
-          ["[a"] = "@parameter.inner",
-        },
-        goto_previous_end = {
-          ["[F"] = "@function.outer",
-          ["[C"] = "@class.outer",
-          ["[A"] = "@parameter.inner",
-        },
-      },
-      select = {
-        enable = true,
-        lookahead = true,
-        keymaps = {
-          ["af"] = "@function.outer",
-          ["if"] = "@function.inner",
-          ["ac"] = "@class.outer",
-          ["ic"] = {
-            query = "@class.inner",
-            desc = "Select inner part of a class region",
-          },
-          ["as"] = {
-            query = "@scope",
-            query_group = "locals",
-            desc = "Select language scope",
-          },
-        },
-        selection_modes = {
-          ["@parameter.outer"] = "v",
-          ["@function.outer"] = "V",
-          ["@class.outer"] = "<c-v>",
-        },
-        include_surrounding_whitespace = true,
-      },
-    },
-  },
+  cmd = { "TSInstall", "TSLog", "TSUninstall", "TSUpdate" },
+  opts = {},
   config = function(_, opts)
-    require("nvim-treesitter.configs").setup(opts)
+    local ts = require("nvim-treesitter")
+    ts.setup(opts)
+
+    vim.api.nvim_create_autocmd("BufReadPost", {
+      callback = function()
+        local ft = vim.bo.filetype
+        local parsers = require("nvim-treesitter").get_installed("parsers")
+        for _, parser in ipairs(parsers) do
+          if ft == parser then
+            vim.treesitter.start()
+            vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
+        end
+      end,
+    })
   end,
 }
