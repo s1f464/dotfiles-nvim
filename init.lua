@@ -49,6 +49,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {
+    "fish",
     "nginx",
   },
   callback = function()
