@@ -8,6 +8,21 @@ return {
     vim.lsp.enable("bashls")
     vim.lsp.enable("biome")
     vim.lsp.enable("cssls")
+    vim.lsp.config("gopls", {
+      settings = {
+        gopls = {
+          hints = {
+            rangeVariableTypes = true,
+            parameterNames = true,
+            constantValues = true,
+            assignVariableTypes = true,
+            compositeLiteralFields = true,
+            compositeLiteralTypes = true,
+            functionTypeParameters = true,
+          },
+        },
+      },
+    })
     vim.lsp.enable("gopls")
     vim.lsp.enable("html")
     vim.lsp.enable("jsonls")
