@@ -132,3 +132,10 @@ vim.diagnostic.config({ virtual_text = true })
 if vim.env.LAZY_DISABLED ~= "1" then
   require("lazyinit")
 end
+
+if vim.g.neovide then
+  vim.o.guifont = "monospace:h11"
+  vim.g.neovide_refresh_rate = 144
+  vim.g.neovide_refresh_rate_idle = 1
+  vim.g.neovide_cursor_antialiasing = false
+end

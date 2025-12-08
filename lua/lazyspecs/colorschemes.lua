@@ -16,7 +16,7 @@ return {
   config = function(_, opts)
     require("everforest").setup(opts)
 
-    if vim.env.COLORTERM == "truecolor" then
+    if vim.env.COLORTERM == "truecolor" or vim.g.neovide then
       vim.cmd([[colorscheme everforest]])
     end
   end,
