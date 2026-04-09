@@ -2,23 +2,6 @@
 
 My [Neovim](https://neovim.io/) config.
 
-    NVIM v0.11.6
+    NVIM v0.12.1
     Build type: RelWithDebInfo
-    LuaJIT 2.1.1767980792
-
-## Installation
-
-    git clone dotfiles-nvim.git
-    cd dotfiles-nvim
-    git worktree add -b deployment ~/.config/nvim
-
-## Plugins
-
-Install [lazy](https://github.com/folke/lazy.nvim) plugin manager to load
-plugins.
-
-    git clone --filter=blob:none --branch=stable https://github.com/folke/lazy.nvim.git ~/.local/share/nvim/lazy/lazy.nvim
-
-Or `:LazyInstall`.
-
-Included plugins: [lazy-lock.json](lazy-lock.json).
+    LuaJIT 2.1.1774896198

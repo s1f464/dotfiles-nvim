@@ -1,0 +1,60 @@
+{
+  "plugins": {
+    "blink.cmp": {
+      "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": ">=0.0.0"
+    },
+    "conform.nvim": {
+      "rev": "3543d000dafbc41cc7761d860cfdb24e82154f75",
+      "src": "https://github.com/stevearc/conform.nvim",
+      "version": ">=0.0.0"
+    },
+    "everforest-nvim": {
+      "rev": "cf08aa67fc96946a01177ae483b7631733b4b5e6",
+      "src": "https://github.com/neanias/everforest-nvim"
+    },
+    "lazydev.nvim": {
+      "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
+      "src": "https://github.com/folke/lazydev.nvim"
+    },
+    "mini.icons": {
+      "rev": "ff2e4f1d29f659cc2bad0f9256f2f6195c6b2428",
+      "src": "https://github.com/nvim-mini/mini.icons",
+      "version": ">=0.0.0"
+    },
+    "nvim-autopairs": {
+      "rev": "23320e75953ac82e559c610bec5a90d9c6dfa743",
+      "src": "https://github.com/windwp/nvim-autopairs",
+      "version": ">=0.0.0"
+    },
+    "nvim-lspconfig": {
+      "rev": "0203a9608d63eda57679b01e69f33a7b4c34b0d1",
+      "src": "https://github.com/neovim/nvim-lspconfig",
+      "version": ">=0.0.0"
+    },
+    "nvim-treesitter": {
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "nvim-treesitter-textobjects": {
+      "rev": "851e865342e5a4cb1ae23d31caf6e991e1c99f1e",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+    },
+    "oil.nvim": {
+      "rev": "975a77cce3c8cb742bc1b3629f4328f5ca977dad",
+      "src": "https://github.com/stevearc/oil.nvim",
+      "version": ">=0.0.0"
+    },
+    "snacks.nvim": {
+      "rev": "e6fd58c82f2f3fcddd3fe81703d47d6d48fc7b9f",
+      "src": "https://github.com/folke/snacks.nvim",
+      "version": ">=0.0.0"
+    },
+    "which-key.nvim": {
+      "rev": "fcbf4eea17cb299c02557d576f0d568878e354a4",
+      "src": "https://github.com/folke/which-key.nvim",
+      "version": ">=0.0.0"
+    }
+  }
+}

@@ -1,5 +1,4 @@
 -- :help lua-guide-variables
--- vim.g.mapleader must be set before loading lazy
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.g.snacks_animate = false
@@ -62,76 +61,38 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end,
   desc = "Briefly highlight yanked text",
 })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    local bufnr = args.buf
+-- :help lua-guide-commands
+vim.api.nvim_create_user_command("PackPrune", function()
+  local plugins = vim
+    .iter(vim.pack.get())
+    :filter(function(x)
+      return not x.active
+    end)
+    :map(function(x)
+      return x.spec.name
+    end)
+    :totable()
 
-    vim.keymap.set(
-      "n",
-      "gd",
-      vim.lsp.buf.definition,
-      { desc = "Go to definition", buffer = bufnr }
-    )
-    vim.keymap.set(
-      "n",
-      "gD",
-      vim.lsp.buf.declaration,
-      { desc = "Go to declaration", buffer = bufnr }
-    )
-    vim.keymap.set(
-      "n",
-      "gy",
-      vim.lsp.buf.type_definition,
-      { desc = "Go to type definition", buffer = bufnr }
-    )
-    vim.keymap.set(
-      "n",
-      "gi",
-      vim.lsp.buf.implementation,
-      { desc = "Go to implementation", buffer = bufnr }
-    )
-    vim.keymap.set(
-      { "n", "v" },
-      "<leader>a",
-      vim.lsp.buf.code_action,
-      { desc = "Perform code action", buffer = bufnr }
-    )
-    vim.keymap.set(
-      "n",
-      "<leader>r",
-      vim.lsp.buf.rename,
-      { desc = "Rename symbol", buffer = bufnr }
-    )
-  end,
-  desc = "Set key mappings for vim.lsp.buf",
+  if #plugins == 0 then
+    vim.notify("No non-active plugins to prune", vim.log.levels.INFO)
+    return
+  end
+
+  local msg = "Remove the following plugins?\n" .. table.concat(plugins, " ")
+  local choice = vim.fn.confirm(msg, "&Yes\n&No", 2)
+  if choice == 1 then
+    vim.pack.del(plugins)
+  end
+end, {
+  desc = "Remove non-active plugins from disk",
 })
 
--- :help lua-guide-commands
-vim.api.nvim_create_user_command("LazyInstall", function()
-  local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-
-  if not (vim.uv or vim.loop).fs_stat(lazypath) then
-    vim.fn.system({
-      "git",
-      "clone",
-      "--filter=blob:none",
-      "--branch=stable",
-      "https://github.com/folke/lazy.nvim.git",
-      lazypath,
-    })
-  end
-end, { desc = "Install lazy plugin manager" })
-
 vim.diagnostic.config({ virtual_text = true })
-
-if vim.env.LAZY_DISABLED ~= "1" then
-  require("lazyinit")
-end
 
 if vim.g.neovide then
   vim.o.guifont = "monospace:h11"
