@@ -6,7 +6,6 @@ vim.pack.add({
 })
 
 vim.lsp.enable("astro")
-vim.lsp.enable("basedpyright")
 vim.lsp.enable("bashls")
 vim.lsp.enable("biome")
 vim.lsp.enable("cssls")
@@ -21,4 +20,5 @@ vim.lsp.enable("svelte")
 vim.lsp.enable("tailwindcss")
 vim.lsp.enable("taplo")
 vim.lsp.enable("tsgo")
+vim.lsp.enable("ty")
 vim.lsp.enable("yamlls")
