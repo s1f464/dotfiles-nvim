@@ -10,6 +10,12 @@ require("everforest").setup({
     palette.bg2 = "#131715"
   end,
 })
-if vim.env.COLORTERM == "truecolor" or vim.g.neovide then
-  vim.cmd.colorscheme("everforest")
-end
+
+vim.api.nvim_create_autocmd("UIEnter", {
+  once = true,
+  callback = function()
+    if vim.o.termguicolors then
+      vim.cmd.colorscheme("everforest")
+    end
+  end,
+})
