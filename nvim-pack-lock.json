@@ -29,7 +29,7 @@
       "version": ">=0.0.0"
     },
     "nvim-lspconfig": {
-      "rev": "0203a9608d63eda57679b01e69f33a7b4c34b0d1",
+      "rev": "9bafffaeaae363c5211080e06e04ed5b422fd5ad",
       "src": "https://github.com/neovim/nvim-lspconfig",
       "version": ">=0.0.0"
     },
