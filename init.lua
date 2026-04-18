@@ -17,6 +17,7 @@ vim.opt.ignorecase = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 5
+vim.opt.shortmess:append("I")
 vim.opt.sidescrolloff = 5
 vim.opt.smartcase = true
 vim.opt.smartindent = true
