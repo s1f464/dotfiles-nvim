@@ -3,6 +3,15 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.g.snacks_animate = false
 
+local disabled_built_ins = {
+  "netrw",
+  "netrwPlugin",
+}
+
+for _, plugin in ipairs(disabled_built_ins) do
+  vim.g["loaded_" .. plugin] = 1
+end
+
 -- :help lua-guide-options
 vim.opt.ignorecase = true
 vim.opt.number = true
