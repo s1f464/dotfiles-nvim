@@ -3,6 +3,14 @@ vim.pack.add({
     src = "https://github.com/windwp/nvim-autopairs",
     version = vim.version.range("*"),
   },
+}, {
+  load = function() end,
 })
 
-require("nvim-autopairs").setup()
+require("lze").load({
+  "nvim-autopairs",
+  event = "InsertEnter",
+  after = function()
+    require("nvim-autopairs").setup()
+  end,
+})

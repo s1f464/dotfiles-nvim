@@ -18,6 +18,11 @@
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
       "src": "https://github.com/folke/lazydev.nvim"
     },
+    "lze": {
+      "rev": "a6314f9aff8cdbf872f96ff41ee2d2f27627b743",
+      "src": "https://github.com/BirdeeHub/lze",
+      "version": ">=0.0.0"
+    },
     "mini.icons": {
       "rev": "ff2e4f1d29f659cc2bad0f9256f2f6195c6b2428",
       "src": "https://github.com/nvim-mini/mini.icons",

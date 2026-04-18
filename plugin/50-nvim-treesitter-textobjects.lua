@@ -1,71 +1,192 @@
 vim.pack.add({
   "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+}, {
+  load = function() end,
 })
 
-local select = require("nvim-treesitter-textobjects.select")
+require("lze").load({
+  "nvim-treesitter-textobjects",
+  event = "DeferredUIEnter",
+  keys = {
+    {
+      "af",
+      function()
+        require("nvim-treesitter-textobjects.select").select_textobject(
+          "@function.outer",
+          "textobjects"
+        )
+      end,
+      mode = { "x", "o" },
+      desc = "function",
+    },
+    {
+      "if",
+      function()
+        require("nvim-treesitter-textobjects.select").select_textobject(
+          "@function.inner",
+          "textobjects"
+        )
+      end,
+      mode = { "x", "o" },
+      desc = "inner function",
+    },
+    {
+      "ac",
+      function()
+        require("nvim-treesitter-textobjects.select").select_textobject(
+          "@class.outer",
+          "textobjects"
+        )
+      end,
+      mode = { "x", "o" },
+      desc = "class",
+    },
+    {
+      "ic",
+      function()
+        require("nvim-treesitter-textobjects.select").select_textobject(
+          "@class.inner",
+          "textobjects"
+        )
+      end,
+      mode = { "x", "o" },
+      desc = "inner class",
+    },
 
-vim.keymap.set({ "x", "o" }, "af", function()
-  select.select_textobject("@function.outer", "textobjects")
-end, { desc = "function" })
+    {
+      "]f",
+      function()
+        require("nvim-treesitter-textobjects.move").goto_next_start(
+          "@function.outer",
+          "textobjects"
+        )
+      end,
+      mode = { "n", "x", "o" },
+      desc = "Next function start",
+    },
+    {
+      "]c",
+      function()
+        require("nvim-treesitter-textobjects.move").goto_next_start(
+          "@class.outer",
+          "textobjects"
+        )
+      end,
+      mode = { "n", "x", "o" },
+      desc = "Next class start",
+    },
+    {
+      "]a",
+      function()
+        require("nvim-treesitter-textobjects.move").goto_next_start(
+          "@parameter.inner",
+          "textobjects"
+        )
+      end,
+      mode = { "n", "x", "o" },
+      desc = "Next parameter start",
+    },
 
-vim.keymap.set({ "x", "o" }, "if", function()
-  select.select_textobject("@function.inner", "textobjects")
-end, { desc = "inner function" })
+    {
+      "]F",
+      function()
+        require("nvim-treesitter-textobjects.move").goto_next_end(
+          "@function.outer",
+          "textobjects"
+        )
+      end,
+      mode = { "n", "x", "o" },
+      desc = "Next function end",
+    },
+    {
+      "]C",
+      function()
+        require("nvim-treesitter-textobjects.move").goto_next_end(
+          "@class.outer",
+          "textobjects"
+        )
+      end,
+      mode = { "n", "x", "o" },
+      desc = "Next class end",
+    },
+    {
+      "]A",
+      function()
+        require("nvim-treesitter-textobjects.move").goto_next_end(
+          "@parameter.inner",
+          "textobjects"
+        )
+      end,
+      mode = { "n", "x", "o" },
+      desc = "Next parameter end",
+    },
 
-vim.keymap.set({ "x", "o" }, "ac", function()
-  select.select_textobject("@class.outer", "textobjects")
-end, { desc = "class" })
+    {
+      "[f",
+      function()
+        require("nvim-treesitter-textobjects.move").goto_previous_start(
+          "@function.outer",
+          "textobjects"
+        )
+      end,
+      mode = { "n", "x", "o" },
+      desc = "Previous function start",
+    },
+    {
+      "[c",
+      function()
+        require("nvim-treesitter-textobjects.move").goto_previous_start(
+          "@class.outer",
+          "textobjects"
+        )
+      end,
+      mode = { "n", "x", "o" },
+      desc = "Previous class start",
+    },
+    {
+      "[a",
+      function()
+        require("nvim-treesitter-textobjects.move").goto_previous_start(
+          "@parameter.inner",
+          "textobjects"
+        )
+      end,
+      mode = { "n", "x", "o" },
+      desc = "Previous parameter start",
+    },
 
-vim.keymap.set({ "x", "o" }, "ic", function()
-  select.select_textobject("@class.inner", "textobjects")
-end, { desc = "inner class" })
-
-local move = require("nvim-treesitter-textobjects.move")
-
-vim.keymap.set({ "n", "x", "o" }, "]f", function()
-  move.goto_next_start("@function.outer", "textobjects")
-end, { desc = "Next function start" })
-
-vim.keymap.set({ "n", "x", "o" }, "]c", function()
-  move.goto_next_start("@class.outer", "textobjects")
-end, { desc = "Next class start" })
-
-vim.keymap.set({ "n", "x", "o" }, "]a", function()
-  move.goto_next_start("@parameter.inner", "textobjects")
-end, { desc = "Next parameter start" })
-
-vim.keymap.set({ "n", "x", "o" }, "]F", function()
-  move.goto_next_end("@function.outer", "textobjects")
-end, { desc = "Next function end" })
-
-vim.keymap.set({ "n", "x", "o" }, "]C", function()
-  move.goto_next_end("@class.outer", "textobjects")
-end, { desc = "Next class end" })
-
-vim.keymap.set({ "n", "x", "o" }, "]A", function()
-  move.goto_next_end("@parameter.inner", "textobjects")
-end, { desc = "Next parameter end" })
-
-vim.keymap.set({ "n", "x", "o" }, "[f", function()
-  move.goto_previous_start("@function.outer", "textobjects")
-end, { desc = "Previous function start" })
-
-vim.keymap.set({ "n", "x", "o" }, "[c", function()
-  move.goto_previous_start("@class.outer", "textobjects")
-end, { desc = "Previous class start" })
-
-vim.keymap.set({ "n", "x", "o" }, "[a", function()
-  move.goto_previous_start("@parameter.inner", "textobjects")
-end, { desc = "Previous parameter start" })
-
-vim.keymap.set({ "n", "x", "o" }, "[F", function()
-  move.goto_previous_end("@function.outer", "textobjects")
-end, { desc = "Previous function end" })
-
-vim.keymap.set({ "n", "x", "o" }, "[C", function()
-  move.goto_previous_end("@class.outer", "textobjects")
-end, { desc = "Previous class end" })
-
-vim.keymap.set({ "n", "x", "o" }, "[A", function()
-  move.goto_previous_end("@parameter.inner", "textobjects")
-end, { desc = "Previous parameter end" })
+    {
+      "[F",
+      function()
+        require("nvim-treesitter-textobjects.move").goto_previous_end(
+          "@function.outer",
+          "textobjects"
+        )
+      end,
+      mode = { "n", "x", "o" },
+      desc = "Previous function end",
+    },
+    {
+      "[C",
+      function()
+        require("nvim-treesitter-textobjects.move").goto_previous_end(
+          "@class.outer",
+          "textobjects"
+        )
+      end,
+      mode = { "n", "x", "o" },
+      desc = "Previous class end",
+    },
+    {
+      "[A",
+      function()
+        require("nvim-treesitter-textobjects.move").goto_previous_end(
+          "@parameter.inner",
+          "textobjects"
+        )
+      end,
+      mode = { "n", "x", "o" },
+      desc = "Previous parameter end",
+    },
+  },
+})

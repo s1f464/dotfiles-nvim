@@ -10,17 +10,32 @@ vim.api.nvim_create_autocmd("PackChanged", {
   end,
 })
 
-vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter" })
+vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter" }, {
+  load = function() end,
+})
 
-vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("my.treesitter", { clear = true }),
-  callback = function(ev)
-    local treesitter = require("nvim-treesitter")
-    local lang = vim.treesitter.language.get_lang(ev.match)
+require("lze").load({
+  "nvim-treesitter",
+  event = "DeferredUIEnter",
+  cmd = {
+    "TSInstall",
+    "TSInstallFromGrammar",
+    "TSLog",
+    "TSUninstall",
+    "TSUpdate",
+  },
+  after = function()
+    vim.api.nvim_create_autocmd("FileType", {
+      group = vim.api.nvim_create_augroup("my.treesitter", { clear = true }),
+      callback = function(ev)
+        local treesitter = require("nvim-treesitter")
+        local lang = vim.treesitter.language.get_lang(ev.match)
 
-    if vim.list_contains(treesitter.get_installed(), lang) then
-      vim.treesitter.start(ev.buf)
-    end
+        if vim.list_contains(treesitter.get_installed(), lang) then
+          vim.treesitter.start(ev.buf)
+        end
+      end,
+      desc = "Start treesitter highlighting",
+    })
   end,
-  desc = "Start treesitter highlighting",
 })
