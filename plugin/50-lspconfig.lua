@@ -11,22 +11,29 @@ require("lze").load({
   "nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   after = function()
-    vim.lsp.enable("astro")
-    vim.lsp.enable("bashls")
-    vim.lsp.enable("biome")
-    vim.lsp.enable("cssls")
-    vim.lsp.enable("gopls")
-    vim.lsp.enable("html")
-    vim.lsp.enable("jsonls")
-    vim.lsp.enable("lua_ls")
-    vim.lsp.enable("prismals")
-    vim.lsp.enable("ruff")
-    vim.lsp.enable("rust_analyzer")
-    vim.lsp.enable("svelte")
-    vim.lsp.enable("tailwindcss")
-    vim.lsp.enable("taplo")
-    vim.lsp.enable("tsgo")
-    vim.lsp.enable("ty")
-    vim.lsp.enable("yamlls")
+    local servers = {
+      "astro",
+      "bashls",
+      "biome",
+      "cssls",
+      "gopls",
+      "html",
+      "jsonls",
+      "lua_ls",
+      "markdown_oxide",
+      "prismals",
+      "ruff",
+      "rust_analyzer",
+      "svelte",
+      "tailwindcss",
+      "taplo",
+      "tsgo",
+      "ty",
+      "yamlls",
+    }
+
+    for _, server in ipairs(servers) do
+      vim.lsp.enable(server)
+    end
   end,
 })
