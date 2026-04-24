@@ -20,13 +20,20 @@ require("lze").load({
     local conform = require("conform")
 
     conform.setup({
+      formatters = {
+        rumdl = {
+          command = "rumdl",
+          args = { "fmt", "-" },
+          stdin = true,
+        },
+      },
       formatters_by_ft = {
         bash = { "shfmt" },
         css = { "prettier" },
         go = { "goimports" },
         html = { "prettier" },
         lua = { "stylua" },
-        markdown = { "prettier" },
+        markdown = { "rumdl" },
         sh = { "shfmt" },
         sql = { "sql_formatter" },
       },
