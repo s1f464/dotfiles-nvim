@@ -123,6 +123,12 @@ end, {
   desc = "Remove non-active plugins from disk",
 })
 
+vim.api.nvim_create_user_command("InlayHintToggle", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, {
+  desc = "Toggle inlay hints",
+})
+
 vim.diagnostic.config({ virtual_text = true })
 
 if vim.g.neovide then
