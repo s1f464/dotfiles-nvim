@@ -8,16 +8,6 @@ vim.pack.add({
 require("snacks").setup({
   bigfile = { enabled = true, size = 512 * 1024 },
   indent = { enabled = true },
-  notifier = {
-    enabled = true,
-    icons = {
-      error = "E",
-      warn = "W",
-      info = "I",
-      debug = "D",
-      trace = "T",
-    },
-  },
   picker = { enabled = true },
   quickfile = { enabled = true },
 })
