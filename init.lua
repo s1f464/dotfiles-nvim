@@ -76,6 +76,27 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Briefly highlight yanked text",
 })
 
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("my.lsp", {}),
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if not client then
+      return
+    end
+    local bufnr = ev.buf
+
+    if client:supports_method("textDocument/definition") then
+      vim.keymap.set(
+        "n",
+        "gd",
+        vim.lsp.buf.definition,
+        { desc = "Go to definition", buffer = bufnr }
+      )
+    end
+  end,
+  desc = "Set key mappings for vim.lsp.buf",
+})
+
 -- :help lua-guide-commands
 vim.api.nvim_create_user_command("PackPrune", function()
   local plugins = vim
