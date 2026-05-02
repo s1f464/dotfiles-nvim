@@ -23,6 +23,7 @@ vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.opt.termguicolors = false
 vim.opt.undofile = true
 vim.opt.wrap = false
 
