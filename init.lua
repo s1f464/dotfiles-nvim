@@ -13,6 +13,7 @@ for _, plugin in ipairs(disabled_built_ins) do
 end
 
 -- :help lua-guide-options
+vim.opt.cursorline = true
 vim.opt.ignorecase = true
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -145,6 +146,8 @@ end, {
 })
 
 vim.diagnostic.config({ virtual_text = true })
+
+vim.cmd.colorscheme("t16")
 
 if vim.g.neovide then
   vim.o.guifont = "monospace:h11"
