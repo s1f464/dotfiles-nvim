@@ -1,36 +1,50 @@
 vim.g.colors_name = "t16"
 vim.opt.background = "dark"
-vim.opt.termguicolors = false
 vim.cmd("highlight clear")
 
 local palette = {
-  black = 0,
-  red = 1,
-  green = 2,
-  yellow = 3,
-  blue = 4,
-  magenta = 5,
-  cyan = 6,
-  white = 7,
-  bright_black = 8,
-  bright_red = 9,
-  bright_green = 10,
-  bright_yellow = 11,
-  bright_blue = 12,
-  bright_magenta = 13,
-  bright_cyan = 14,
-  bright_white = 15,
+  black = { cterm = 0, hex = "#000000" },
+  red = { cterm = 1, hex = "#aa0000" },
+  green = { cterm = 2, hex = "#00aa00" },
+  yellow = { cterm = 3, hex = "#aa5500" },
+  blue = { cterm = 4, hex = "#0000aa" },
+  magenta = { cterm = 5, hex = "#aa00aa" },
+  cyan = { cterm = 6, hex = "#00aaaa" },
+  white = { cterm = 7, hex = "#aaaaaa" },
+  bright_black = { cterm = 8, hex = "#555555" },
+  bright_red = { cterm = 9, hex = "#ff5555" },
+  bright_green = { cterm = 10, hex = "#55ff55" },
+  bright_yellow = { cterm = 11, hex = "#ffff55" },
+  bright_blue = { cterm = 12, hex = "#5555ff" },
+  bright_magenta = { cterm = 13, hex = "#ff55ff" },
+  bright_cyan = { cterm = 14, hex = "#55ffff" },
+  bright_white = { cterm = 15, hex = "#ffffff" },
 }
 
 ---@param name string
----@param val vim.api.keyset.highlight
 local function hl(name, val)
-  vim.api.nvim_set_hl(0, name, val)
+  ---@type vim.api.keyset.highlight
+  local v = {}
+
+  if val.ctermfg then
+    v.ctermfg = val.ctermfg.cterm
+    v.fg = val.ctermfg.hex
+  end
+
+  if val.ctermbg then
+    v.ctermbg = val.ctermbg.cterm
+    v.bg = val.ctermbg.hex
+  end
+
+  local merged = vim.tbl_extend("force", val, v)
+
+  vim.api.nvim_set_hl(0, name, merged)
 end
 
 -- :help highlight-groups
 hl("LineNr", { ctermfg = palette.white })
 hl("NonText", { ctermfg = palette.bright_black })
+hl("Normal", { ctermfg = palette.white, ctermbg = palette.black })
 
 -- :help group-name
 hl("Comment", { ctermfg = palette.bright_black })
