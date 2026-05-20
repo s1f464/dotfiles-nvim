@@ -24,7 +24,6 @@ vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.termguicolors = false
 vim.opt.undofile = true
 vim.opt.wrap = false
 
@@ -151,6 +150,7 @@ vim.cmd.colorscheme("t16")
 
 if vim.g.neovide then
   vim.o.guifont = "monospace:h11"
+  --vim.o.guifont = "BmPlus IBM VGA 8x16:h12"
   vim.g.neovide_refresh_rate = 144
   vim.g.neovide_refresh_rate_idle = 1
   vim.g.neovide_cursor_antialiasing = false
