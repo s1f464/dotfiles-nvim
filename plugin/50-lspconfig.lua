@@ -22,6 +22,7 @@ require("lze").load({
       "lua_ls",
       "markdown_oxide",
       "prismals",
+      "qmlls",
       "ruff",
       "rust_analyzer",
       "svelte",
