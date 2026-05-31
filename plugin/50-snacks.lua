@@ -15,7 +15,7 @@ require("snacks").setup({
 vim.keymap.set(
   "n",
   "<leader>f",
-  Snacks.picker.smart,
+  Snacks.picker.files,
   { desc = "Open file picker" }
 )
 
