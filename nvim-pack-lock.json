@@ -53,7 +53,7 @@
       "version": ">=0.0.0"
     },
     "vim-startuptime": {
-      "rev": "f10474b400c197787a0434548d842a2db583c333",
+      "rev": "5f33e50f1e2e2a80370c9094e4c303ea54cd2aea",
       "src": "https://github.com/dstein64/vim-startuptime",
       "version": ">=0.0.0"
     },
