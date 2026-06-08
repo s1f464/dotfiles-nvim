@@ -16,6 +16,7 @@ require("lze").load({
       "bashls",
       "biome",
       "cssls",
+      "dotls",
       "gopls",
       "html",
       "jsonls",
