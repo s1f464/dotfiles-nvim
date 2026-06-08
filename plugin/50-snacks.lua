@@ -33,6 +33,13 @@ vim.keymap.set(
   { desc = "Open diagnostic picker" }
 )
 
+vim.keymap.set(
+  "n",
+  "<leader>D",
+  Snacks.picker.diagnostics,
+  { desc = "Open workspace diagnostic picker" }
+)
+
 vim.api.nvim_create_user_command("ConfigFind", function()
   Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
 end, {
