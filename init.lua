@@ -149,8 +149,12 @@ vim.diagnostic.config({ virtual_text = true })
 vim.cmd.colorscheme("t16")
 
 if vim.g.neovide then
-  vim.o.guifont = "monospace:h11"
-  --vim.o.guifont = "BmPlus IBM VGA 8x16:h12"
+  if vim.fn.has("win32") == 1 then
+    vim.o.guifont = "Roboto Mono:h10.5"
+  else
+    vim.o.guifont = "monospace:h10.5"
+  end
+
   vim.g.neovide_refresh_rate = 240
   vim.g.neovide_refresh_rate_idle = 1
   vim.g.neovide_cursor_antialiasing = false
