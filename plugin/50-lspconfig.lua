@@ -28,7 +28,7 @@ require("lze").load({
       "svelte",
       "tailwindcss",
       "taplo",
-      "tsgo",
+      "tsc",
       "ty",
       "yamlls",
     }
